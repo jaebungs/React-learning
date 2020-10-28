@@ -22,7 +22,7 @@ const onFormSubmit = (e) => {
 const onMakeDecision = () => {
     const randomNumber = Math.floor(Math.random() * app.options.length);
     const option = app.options[randomNumber];
-
+    alert(option)
 }
 
 const onRemoveAll = () => {
