@@ -22,6 +22,11 @@ const renderTemplate = () => {
                 {toggle ? 'Hide details' : 'Show details'}
             </button>
             {toggle ? <p>'Now you can see the details'</p> : ''}
+            {toggle && (
+                <div>
+                    <p>Or I can use this</p>
+                </div>
+            )}
         </div>
     );
 
