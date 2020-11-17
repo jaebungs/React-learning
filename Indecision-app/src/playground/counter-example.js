@@ -1,11 +1,13 @@
 class Counter extends React.Component {
+//   babel src/playground/counter-example.js --out-file=public/scripts/app.js --prese 
+// ts=env,react --watch
   constructor(props) {
     super(props);
     this.handleIncreaseCounter = this.handleIncreaseCounter.bind(this);
     this.handleDecreaseCounter = this.handleDecreaseCounter.bind(this);
     this.handleResetCounter = this.handleResetCounter.bind(this);
     this.state = {
-      count: 0
+      count: props.count
     };
   }
 
@@ -49,6 +51,10 @@ class Counter extends React.Component {
       </div>
     )
   }
+}
+
+Counter.defaultProps = {
+  count: 0
 }
 
 ReactDOM.render(<Counter />, document.getElementById('app'));
