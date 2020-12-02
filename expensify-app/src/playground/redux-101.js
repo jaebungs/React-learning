@@ -23,31 +23,39 @@
      count
  })
 
- const store = createStore((state = { count: 0 }, action) => {
-     switch (action.type){
-         case 'INCREMENT':
-            //  const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
-             return {
-                count: state.count + action.incrementBy  
-             };
-        case 'DECREMENT':
-            // const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
+// Reducers
+/*
+1. Reducers are pure function
+-pure function is the return value is only determinded by its input value
+2. Never change state or action
+*/
+
+const countReducer = (state = { count: 0 }, action) => {
+    switch (action.type){
+        case 'INCREMENT':
+           //  const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
             return {
-                count: state.count - action.decrementBy
+               count: state.count + action.incrementBy  
             };
-        case 'RESET':
-            return {
-                count: 0
-            };
-        case 'SET':
-            return {
-                count: action.count
-            }
-        default:
-            return state;
-     }
-     
- });
+       case 'DECREMENT':
+           // const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
+           return {
+               count: state.count - action.decrementBy
+           };
+       case 'RESET':
+           return {
+               count: 0
+           };
+       case 'SET':
+           return {
+               count: action.count
+           }
+       default:
+           return state;
+    }
+};
+
+const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
     console.log(store.getState());
