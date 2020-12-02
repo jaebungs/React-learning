@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouters';
 import configureStore from './store/configureStore';
 import { addExpense, removeExpense, editExpense } from './actions/expenses';
@@ -19,10 +20,10 @@ store.dispatch(addExpense({
 store.dispatch(addExpense({
     description : 'Gas bill', 
     note : 'Nov gas bill', 
-    amount : 80, 
+    amount : 100, 
     createdAt : 700
 }))
-store.dispatch(setTextFilter('gas'))
+store.dispatch(setTextFilter('water'))
 
 
 const state = store.getState();
@@ -30,7 +31,11 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 console.log(visibleExpenses);
 
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
 
-
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById('app'));
 // yarn run webpack serve --mode development
