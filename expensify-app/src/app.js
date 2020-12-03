@@ -23,7 +23,13 @@ store.dispatch(addExpense({
     amount : 100, 
     createdAt : 700
 }))
-store.dispatch(setTextFilter('water'))
+store.dispatch(addExpense({
+    description : 'Rent', 
+    amount : 2400, 
+    createdAt : 1000
+}))
+
+// store.dispatch(setTextFilter('water'))
 
 
 const state = store.getState();
