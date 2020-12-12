@@ -4,7 +4,7 @@ const filtersReducerDefaultState = {
     text: '',
     sortBy: 'date',
     startDate: moment().startOf('month'),
-    endDate: moment().startOf('month')
+    endDate: moment().endOf('month')
 };
 
 // Object spread operator is very useful when chaning values
