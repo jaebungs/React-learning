@@ -56,13 +56,17 @@ test('should edit expense by id', () => {
     }
     const state = expensesReducer(expenses, action);
     expect(state[0].amount).toBe(amount)
-})
+});
 
 test('should not edit expense if no id found', () => {
+    const amount = 320532113
     const action = {
         type: 'EDIT_EXPENSE',
-        id: '-1'
+        id: '-1',
+        updates: {
+            amount
+        }
     }
     const state = expensesReducer(expenses, action);
-    expect(state[0]).toEqual(expenses[0])
+    expect(state).toEqual(expenses)
 })
